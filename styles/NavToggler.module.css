@@ -1,0 +1,52 @@
+.toggler {
+    background-color: transparent;
+    border: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.toggler > span.bar {
+  display: block;
+  height: 2px;
+  margin: 3px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #333;
+}
+
+.toggler:hover > span.bar {
+    margin: 2px auto;
+}
+
+.toggler > span.bar:nth-child(1) {
+  width: 18px;
+  transform: none;
+}
+.toggler > span.bar:nth-child(2) {
+  width: 24px;
+  opacity: 1;
+}
+.toggler > span.bar:nth-child(3) {
+  width: 18px;
+  transform: none;
+}
+
+.active:hover > span.bar {
+    margin: 3px auto;
+}
+
+.active span.bar:nth-child(1){
+    transform: rotate(45deg) translate(4px, 7px);
+ 
+}
+.active span.bar:nth-child(3){
+    transform: rotate(-45deg) translate(4px, -7px);
+ 
+}
+.active span.bar:nth-child(2){
+    opacity: 0;
+}

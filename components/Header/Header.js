@@ -4,7 +4,7 @@ function Header({navigation}) {
   return (
     <header 
         className='py-3'
-        style={{backgroundColor: ''}}
+        style={{backgroundColor: 'lightblue'}}
       >
         <div className='container-fluid'>
         <h1 className="text-center pb-5">Headless Wordpress</h1>  

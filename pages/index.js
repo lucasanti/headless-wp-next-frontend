@@ -6,8 +6,8 @@ import { getNavigation, getEvents, getPosts, getPeople } from '../utils/wordpres
 import Post from '../components/Post';
 import Event from '../components/Event';
 import People from '../components/People';
-import Navigation from '../components/Navigation/Navigation';
 import Header from '../components/Header/Header';
+import EventsPreviewList from '../components/Events/EventsPreviewList';
 
 export default function Home({ navigation, posts, events, people }) {
 
@@ -20,13 +20,7 @@ export default function Home({ navigation, posts, events, people }) {
       />;
   });
 
-  const renderedEvents = events.map((event) => {
-    const featuredMedia = event['_embedded']['wp:featuredmedia'][0];
-    return <Event event={event} 
-      featuredMedia={featuredMedia} 
-      key={event.id} 
-      />;
-  });
+  
 
 
   const renderedPeople = people.map((person) => {
@@ -50,9 +44,6 @@ export default function Home({ navigation, posts, events, people }) {
         {/* You can add more metadata here, like open graph tags for social media, etc */}
       </Head>
 
-      <Header navigation={navigation} />
-
-
       <div className="container-fluid pt-5">
         <div className="row">
           <div className="col-lg-8">
@@ -61,7 +52,10 @@ export default function Home({ navigation, posts, events, people }) {
           </div>
           <div className="col-lg-4">
             <h2 className="pb-3">Our upcoming events</h2>
-            { renderedEvents }
+            {  }
+
+            <EventsPreviewList events={events}/>
+
           </div>
         </div>
         <div className='row'>
@@ -90,6 +84,6 @@ export async function getStaticProps({ params }) {
       people
       // media
     },
-    revalidate: 10, // In seconds
+    revalidate: 600, // In seconds
   };
 }
