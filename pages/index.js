@@ -7,6 +7,7 @@ import Post from '../components/Post';
 import Event from '../components/Event';
 import People from '../components/People';
 import Navigation from '../components/Navigation/Navigation';
+import Header from '../components/Header/Header';
 
 export default function Home({ navigation, posts, events, people }) {
 
@@ -49,17 +50,7 @@ export default function Home({ navigation, posts, events, people }) {
         {/* You can add more metadata here, like open graph tags for social media, etc */}
       </Head>
 
-      <header 
-        className='py-3'
-        style={{backgroundColor: ''}}
-      >
-        <div className='container-fluid'>
-        <h1 className="text-center pb-5">Headless Wordpress</h1>  
-            
-            <Navigation navigation={navigation}/>
-
-        </div>
-      </header>
+      <Header navigation={navigation} />
 
 
       <div className="container-fluid pt-5">
