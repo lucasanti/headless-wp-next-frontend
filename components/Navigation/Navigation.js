@@ -2,6 +2,22 @@ import { useState, useEffect, createRef } from 'react';
 import Link from 'next/link';
 import styles from '../../styles/NavToggler.module.css'
 
+
+function replaceAbsoluteLinks(html) {
+  const siteUrl = 'https://dev-b-headless-wp.pantheonsite.io';
+  const relativeUrl = '';
+  const regex = new RegExp(siteUrl, 'g');
+  const aTagRegex = /(<a.*?href=")(.*?)(".*?>.*?<\/a>)/gi;
+
+  html = html.replace(regex, relativeUrl);
+  html = html.replace(aTagRegex, function(match, p1, p2, p3) {
+    return p1 + p2.replace(regex, relativeUrl) + p3;
+  });
+  html = html.replace(/<a>\s*<\/a>/gi, '');
+
+  return html;
+}
+
 function Navigation({ navigation }) {
   const navRef = createRef();
 
@@ -20,13 +36,6 @@ function Navigation({ navigation }) {
     }
   }, [navigation])
 
-  
-  function replaceAbsoluteLinks(html) {
-    const siteUrl = 'https://dev-b-headless-wp.pantheonsite.io';
-    const relativeUrl = '';
-    const regex = new RegExp(siteUrl, 'g');
-    return html.replace(regex, relativeUrl);
-  }
   const replacedHtml = navigation ? replaceAbsoluteLinks(navigation) : '';
 
   const menuClass = `collapse navbar-collapse ${isMenuOpen ? 'show' : ''}`;
