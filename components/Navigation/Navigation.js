@@ -1,4 +1,5 @@
 import { useState, useEffect, createRef } from 'react';
+import Link from 'next/link';
 import styles from '../../styles/NavToggler.module.css'
 
 function Navigation({ navigation }) {
@@ -33,7 +34,7 @@ function Navigation({ navigation }) {
   return (
       <nav className='navbar navbar-expand-lg' ref={navRef}>
         
-        <a className="navbar-brand p-0" href="/">Logo</a>
+        <Link className="navbar-brand p-0" href="/">Logo</Link>
         
         <button 
           className={`${btnClass} d-lg-none`} 
