@@ -26,7 +26,7 @@ function Navigation({ navigation }) {
     const regex = new RegExp(siteUrl, 'g');
     return html.replace(regex, relativeUrl);
   }
-  const replacedHtml = replaceAbsoluteLinks(navigation);
+  const replacedHtml = navigation ? replaceAbsoluteLinks(navigation) : '';
 
   const menuClass = `collapse navbar-collapse ${isMenuOpen ? 'show' : ''}`;
   const btnClass = `${styles.toggler} ${isMenuOpen ? `${styles.active}` : ''}`;

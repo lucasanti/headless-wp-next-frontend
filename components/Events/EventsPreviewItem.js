@@ -1,10 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaCalendarAlt, FaMapPin } from "react-icons/fa";
+import { FaCalendarAlt, FaClock, FaLaptop, FaMapPin } from "react-icons/fa";
 
 function EventsPreviewItem({ event, featuredMedia }) {
   const eventUrl = `/events/${event.slug}`;
   const imgSrc = featuredMedia["media_details"].sizes.medium["source_url"];
+
+  const eventLocation = <><span className="me alig-itmes-center-2" style={{fontSize: '0.8em'}}><FaMapPin /></span> {event.acf.location}</>;
+  const eventPlatform = <><span className="me alig-itmes-center-2" style={{fontSize: '0.8em'}}><FaLaptop /></span> {event.acf.platform}</>;
+
 
   return (
     
@@ -19,11 +23,12 @@ function EventsPreviewItem({ event, featuredMedia }) {
             <h3 className="card-title">{event.title.rendered}</h3>
             </Link>
           <div className="row mb-3">
-            <div className="col d-flex align-items-center">
-            <span className="me-2 alig-itmes-center" style={{fontSize: '0.8em'}}><FaCalendarAlt /></span> {event.acf.date}
+            <div className="col d-flex flex-column justify-content-center">
+            <div className="d-flex flex-row align-items-center"><span className="me-2" style={{fontSize: '0.8em'}}><FaCalendarAlt /></span> {event.acf.event_date}</div>
+            <div className="d-flex flex-row align-items-center"><span className="me-2" style={{fontSize: '0.8em'}}><FaClock /></span> {event.acf.event_hour}</div>
             </div>
             <div className="col d-flex align-items-center">
-              <span className="me alig-itmes-center-2" style={{fontSize: '0.8em'}}><FaMapPin /></span> {event.acf.location}
+              { event.acf.in_presence ? eventLocation : eventPlatform }
             </div>
           </div>
           <div className="">

@@ -24,7 +24,7 @@ export default function Event({ event, featuredMedia }) {
           dangerouslySetInnerHTML={{ __html: event.excerpt.rendered }}
         ></div>
         <p className="card-text">
-          <small className="text-muted">{event.acf.date}</small>
+          <small className="text-muted">{event.acf.event_date} at {event.acf.event_hour}</small>
         </p>
         <Link href={`/events/${event.slug}`} className="btn btn-primary">
           See more

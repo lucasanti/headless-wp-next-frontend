@@ -10,7 +10,7 @@ export default function Post({ post, featuredMedia }) {
     <div className="card mb-3" >
       <div className="row g-0">
         
-          <Link href={`/posts/${post.slug}`} className='col-md-4 '>
+          <Link href={`/news/${post.slug}`} className='col-md-4 '>
             
               <Image
                 src={featuredMedia['media_details'].sizes.medium['source_url']}
@@ -33,7 +33,7 @@ export default function Post({ post, featuredMedia }) {
             <p className="card-text">
               <small className="text-muted">On {getDate(post.modified)}</small>
             </p>
-            <Link href={`/posts/${post.slug}`} className="btn btn-primary">
+            <Link href={`/news/${post.slug}`} className="btn btn-primary">
               See more
             </Link>
           </div>

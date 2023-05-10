@@ -20,14 +20,16 @@ export default function People({ person, featuredMedia }) {
       </Link>
       <div className="card-body d-flex flex-column align-items-center">
         <h5 className="card-title">{person.title.rendered}</h5>
+        <p className="card-text">
+          <small className="text-muted">{person.acf.role}</small><br />
+          <small className="">{person.acf.department}</small>
+        </p>
+
         <div
           className="card-text"
           dangerouslySetInnerHTML={{ __html: person.excerpt.rendered }}
         ></div>
-        <p className="card-text">
-          <small className="text-muted">{person.acf.role}</small><br />
-          <small className="">{person.acf.dpt__dir}</small>
-        </p>
+        
         <Link href={`/people/${person.slug}`} className="btn btn-primary">
           See more
         </Link>
