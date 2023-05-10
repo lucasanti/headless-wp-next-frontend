@@ -1,3 +1,4 @@
+import Link from "next/link";
 function Copyrights() {
   const d = new Date().getFullYear();
 
@@ -5,9 +6,9 @@ function Copyrights() {
     <div className="container">
       <div className="d-flex flex-row justify-content-center align-items-center ">
         <div className="">
-          <a className="navbar-brand p-0" href="/">
+          <Link className="navbar-brand p-0" href="/">
             Logo
-          </a>
+          </Link>
         </div>
         <div className="">&copy; {d} - All rights reserved</div>
       </div>
