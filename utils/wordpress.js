@@ -44,7 +44,7 @@ export async function getNavigation(){
   const navigationRes = await fetch(BASE_URL + '/navigation/32');
   const navigationData = await navigationRes.json();
   const navigation = navigationData.content.rendered;
-  console.log(navigation)
+  // console.log(navigation)
   return navigation;
 }
 

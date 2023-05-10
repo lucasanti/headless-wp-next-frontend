@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps, navigation }) {
   )
 }
 
-export async function getServerSideProps({ Component, ctx }) {
+MyApp.getInitialProps = async ({ Component, ctx }) => {
   let pageProps = {};
 
   if (Component.getInitialProps) {
@@ -19,8 +19,8 @@ export async function getServerSideProps({ Component, ctx }) {
 
   const navigation = await getNavigation();
 
-  return { props: { pageProps, navigation } };
-}
+  return { pageProps, navigation };
+};
 
-export default MyApp;
 
+export default MyApp
