@@ -4,7 +4,7 @@ import EventsPreviewItem from './EventsPreviewItem';
 function EventsPreviewList({events}) {
 
     const renderedEvents = events.map((event) => {
-        const featuredMedia = event['_embedded']['wp:featuredmedia'][0];
+      const featuredMedia = event['_embedded']['wp:featuredmedia']?.[0] || null;
         return <EventsPreviewItem event={event} 
           featuredMedia={featuredMedia} 
           key={event.id} 

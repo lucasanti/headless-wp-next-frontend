@@ -8,7 +8,7 @@ function Header({navigation}) {
         style={{backgroundColor: 'lightblue'}}
       >
         <div className='container-fluid'>
-        <h1 className="text-center pb-5">Headless Wordpress</h1>  
+        {/* <h1 className="text-center pb-5">Headless Wordpress</h1>   */}
             
             <Navigation navigation={navigation} />
 

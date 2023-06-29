@@ -24,7 +24,7 @@ export default function Home({ navigation, posts, events, people }) {
 
 
   const renderedPeople = people.map((person) => {
-    const featuredMedia = person['_embedded']['wp:featuredmedia'][0];
+    const featuredMedia = person['_embedded']?.['wp:featuredmedia']?.[0] || null;
     return <People 
       person={person} 
       featuredMedia={featuredMedia}

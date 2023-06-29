@@ -4,15 +4,20 @@ import Image from 'next/image';
 //for more info, check out these docs https://nextjs.org/docs/basic-features/image-optimization
 
 export default function Event({ event, featuredMedia }) {
+
+  const hasFeaturedMedia = featuredMedia && featuredMedia['_embedded'] && featuredMedia['_embedded']['wp:featuredmedia'];
+  const featuredMediaUrl = hasFeaturedMedia ? featuredMedia['_embedded']['wp:featuredmedia'][0]?.source_url : '/images/fallback-events.jpg';
+  const altText = hasFeaturedMedia ? featuredMedia['_embedded']['wp:featuredmedia'][0]?.alt_text : 'Fallback Image';
+
   return (
     <div className="card mb-3" >
       <Link href={`/events/${event.slug}`}>
         
           <Image
-            src={featuredMedia['media_details'].sizes.medium['source_url']}
+            src={featuredMediaUrl}
             width={288}
             height={190}
-            alt={featuredMedia['alt_text']}
+            alt={altText}
             className="card-img-top"
           />
         

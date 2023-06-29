@@ -4,10 +4,12 @@ import { FaCalendarAlt, FaClock, FaLaptop, FaMapPin } from "react-icons/fa";
 
 function EventsPreviewItem({ event, featuredMedia }) {
   const eventUrl = `/events/${event.slug}`;
-  const imgSrc = featuredMedia["media_details"].sizes.medium["source_url"];
+  // const imgSrc = featuredMedia["media_details"].sizes.medium["source_url"];
+  const featuredMediaUrl = featuredMedia ? featuredMedia['media_details'].sizes.medium['source_url'] : '/images/fallback-events.jpg';
+  const altText = featuredMedia ? featuredMedia['alt_text'] : 'Fallback Image';
 
-  const eventLocation = <><span className="me alig-itmes-center-2" style={{fontSize: '0.8em'}}><FaMapPin /></span> {event.acf.location}</>;
-  const eventPlatform = <><span className="me alig-itmes-center-2" style={{fontSize: '0.8em'}}><FaLaptop /></span> {event.acf.platform}</>;
+  const eventLocation = <><span className="me align-items-center-2" style={{fontSize: '0.8em'}}><FaMapPin /></span> {event.acf.location}</>;
+  const eventPlatform = <><span className="me align-items-center-2" style={{fontSize: '0.8em'}}><FaLaptop /></span> {event.acf.platform}</>;
 
 
   return (
@@ -15,7 +17,7 @@ function EventsPreviewItem({ event, featuredMedia }) {
       <div className="row align-items-center mb-4">
         <div className="col" >
             <Link href={eventUrl} className="mb-4">
-                <Image className="card-img img-thumb" src={imgSrc} width={180} height={180} alt={featuredMedia['alt_text']}/>
+                <Image className="card-img img-thumb" src={featuredMediaUrl} width={180} height={180} alt={altText}/>
             </Link>
         </div>
         <div className="col">

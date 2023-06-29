@@ -7,8 +7,16 @@ import { getDate } from '../utils/utils';
 
 export default function Post({ post, featuredMedia }) {
 
-  const featuredMediaUrl = featuredMedia ? featuredMedia['media_details'].sizes.medium['source_url'] : '/images/fallback-posts.jpg';
-  const altText = featuredMedia ? featuredMedia['alt_text'] : 'Fallback Image';
+  const featuredMediaUrl =
+    featuredMedia &&
+    featuredMedia.media_details &&
+    featuredMedia.media_details.sizes &&
+    featuredMedia.media_details.sizes.medium
+      ? featuredMedia.media_details.sizes.medium.source_url
+      : "/images/fallback-posts.jpg";
+  const altText =
+    featuredMedia && featuredMedia.alt_text ? featuredMedia.alt_text : "Fallback Image";
+
 
   return (
     <div className="card mb-3" >

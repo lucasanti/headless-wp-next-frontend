@@ -2,6 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export default function People({ person, featuredMedia }) {
+
+  const featuredMediaUrl = featuredMedia ? featuredMedia['media_details'].sizes.medium['source_url'] : '/images/fallback-people.jpg';
+  const altText = featuredMedia ? featuredMedia['alt_text'] : 'Fallback Image';
+
   return (
     <div className='col'>
     <div className="card mb-3 py-3" style={{maxWidth: '300px'}}>
@@ -9,10 +13,10 @@ export default function People({ person, featuredMedia }) {
         <div style={{maxWidth: '210px'}}>
 
           <Image
-            src={featuredMedia['media_details'].sizes.medium['source_url']}
+            src={featuredMediaUrl}
             width={210}
             height={210}
-            alt={featuredMedia['alt_text']}
+            alt={altText}
             className="card-img-top rounded-circle"
             />
         </div>
