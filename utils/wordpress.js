@@ -48,7 +48,6 @@ export async function getNavigation(){
   return navigation;
 }
 
-
 export async function getSlugs(type) {
   let elements = [];
   switch (type) {

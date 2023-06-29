@@ -69,7 +69,7 @@ export default function Home({ navigation, posts, events, people }) {
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const posts = await getPosts();
   const events = await getEvents();
   const people = await getPeople();
@@ -83,7 +83,6 @@ export async function getStaticProps({ params }) {
       events,
       people
       // media
-    },
-    revalidate: 600, // In seconds
+    }
   };
 }
