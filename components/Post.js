@@ -6,6 +6,10 @@ import Image from 'next/image';
 import { getDate } from '../utils/utils';
 
 export default function Post({ post, featuredMedia }) {
+
+  const featuredMediaUrl = featuredMedia ? featuredMedia['media_details'].sizes.medium['source_url'] : '/images/fallback-posts.jpg';
+  const altText = featuredMedia ? featuredMedia['alt_text'] : 'Fallback Image';
+
   return (
     <div className="card mb-3" >
       <div className="row g-0">
@@ -13,10 +17,10 @@ export default function Post({ post, featuredMedia }) {
           <Link href={`/news/${post.slug}`} className='col-md-4 '>
             
               <Image
-                src={featuredMedia['media_details'].sizes.medium['source_url']}
+                src={featuredMediaUrl}
                 width={400}
                 height={200}  
-                alt={featuredMedia['alt_text']}
+                alt={altText}
                 className='card-img fit-cover w-100 h-100 rounded-0 '
               />
             

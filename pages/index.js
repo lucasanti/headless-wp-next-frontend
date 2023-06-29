@@ -12,7 +12,7 @@ import EventsPreviewList from '../components/Events/EventsPreviewList';
 export default function Home({ navigation, posts, events, people }) {
 
   const renderedPosts = posts.map((post) => {
-    const featuredMedia = post['_embedded']['wp:featuredmedia'][0];
+    const featuredMedia = post['_embedded']['wp:featuredmedia']?.[0] || null;
     return <Post 
       post={post} 
       featuredMedia={featuredMedia} 
